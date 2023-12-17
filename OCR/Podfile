@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'OCR' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for OCR
+
+  ## For Google Ml Kit Vision OCR	
+  # To recognize Latin script
+  pod 'GoogleMLKit/TextRecognition', '3.2.0'
+
+  # To recognize Korean script
+  pod 'GoogleMLKit/TextRecognitionKorean', '3.2.0'
+
+
+end
