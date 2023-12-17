@@ -101,5 +101,8 @@ iOSInjectionProject/
 # DS_Store
 .DS_Store
 
+# installed pod for OCR
+OCR/Pods/
+
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
