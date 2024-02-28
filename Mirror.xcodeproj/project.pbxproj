@@ -17,6 +17,11 @@
 		5AF7F1902B8B0B8100EF72E7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AF7F18F2B8B0B8100EF72E7 /* SnapKit */; };
 		5AF7F1922B8B0B8100EF72E7 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5AF7F1912B8B0B8100EF72E7 /* SnapKit-Dynamic */; };
 		5AF7F19E2B8B20C900EF72E7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F19D2B8B20C900EF72E7 /* HomeVC.swift */; };
+		5AF7F1A02B8B6B9200EF72E7 /* FindObjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F19F2B8B6B9200EF72E7 /* FindObjectVC.swift */; };
+		5AF7F1A22B8B6C6900EF72E7 /* DescribingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A12B8B6C6900EF72E7 /* DescribingVC.swift */; };
+		5AF7F1A42B8B6C7A00EF72E7 /* TextReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A32B8B6C7A00EF72E7 /* TextReadingVC.swift */; };
+		5AF7F1A62B8B6DA900EF72E7 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A52B8B6DA900EF72E7 /* TabBarVC.swift */; };
+		5AF7F1A82B8B787200EF72E7 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A72B8B787200EF72E7 /* Color+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		09BC28912B649660003F4263 /* DefaultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVC.swift; sourceTree = "<group>"; };
 		09BC28932B6496A3003F4263 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		5AF7F19D2B8B20C900EF72E7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		5AF7F19F2B8B6B9200EF72E7 /* FindObjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectVC.swift; sourceTree = "<group>"; };
+		5AF7F1A12B8B6C6900EF72E7 /* DescribingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribingVC.swift; sourceTree = "<group>"; };
+		5AF7F1A32B8B6C7A00EF72E7 /* TextReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReadingVC.swift; sourceTree = "<group>"; };
+		5AF7F1A52B8B6DA900EF72E7 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		5AF7F1A72B8B787200EF72E7 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 		09BC28892B6494ED003F4263 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F1A52B8B6DA900EF72E7 /* TabBarVC.swift */,
 				5AF7F1982B8B1F2800EF72E7 /* OnBoarding */,
 				5AF7F1992B8B1F7A00EF72E7 /* Home */,
 				5AF7F19A2B8B1F8A00EF72E7 /* FindObject */,
@@ -149,6 +160,7 @@
 		09BC288D2B649553003F4263 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F1A72B8B787200EF72E7 /* Color+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,6 +207,7 @@
 		5AF7F19A2B8B1F8A00EF72E7 /* FindObject */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F19F2B8B6B9200EF72E7 /* FindObjectVC.swift */,
 			);
 			path = FindObject;
 			sourceTree = "<group>";
@@ -202,6 +215,7 @@
 		5AF7F19B2B8B1FA600EF72E7 /* TextReading */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F1A32B8B6C7A00EF72E7 /* TextReadingVC.swift */,
 			);
 			path = TextReading;
 			sourceTree = "<group>";
@@ -209,6 +223,7 @@
 		5AF7F19C2B8B1FB000EF72E7 /* Describing */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F1A12B8B6C6900EF72E7 /* DescribingVC.swift */,
 			);
 			path = Describing;
 			sourceTree = "<group>";
@@ -290,10 +305,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF7F1A42B8B6C7A00EF72E7 /* TextReadingVC.swift in Sources */,
+				5AF7F1A22B8B6C6900EF72E7 /* DescribingVC.swift in Sources */,
+				5AF7F1A62B8B6DA900EF72E7 /* TabBarVC.swift in Sources */,
 				09BC286C2B64921B003F4263 /* AppDelegate.swift in Sources */,
+				5AF7F1A02B8B6B9200EF72E7 /* FindObjectVC.swift in Sources */,
 				5AF7F19E2B8B20C900EF72E7 /* HomeVC.swift in Sources */,
 				09BC28762B64921B003F4263 /* Mirror.xcdatamodeld in Sources */,
 				09BC28922B649660003F4263 /* DefaultVC.swift in Sources */,
+				5AF7F1A82B8B787200EF72E7 /* Color+.swift in Sources */,
 				09BC286E2B64921B003F4263 /* SceneDelegate.swift in Sources */,
 				09BC28942B6496A3003F4263 /* BaseController.swift in Sources */,
 			);

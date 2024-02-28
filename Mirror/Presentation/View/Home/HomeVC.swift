@@ -8,24 +8,29 @@
 import UIKit
 import SnapKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseController {
     
+    // MARK: - Properties
+    // 변수 및 상수, IBOutlet
+
+    // MARK: - Lifecycle
+    // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        view.addSubview(imageView)
-        
-        imageView.snp.makeConstraints { make in
-            make.width.height.equalTo(40)
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.equalTo(view.safeAreaLayoutGuide)
-        }
     }
     
-    lazy var imageView: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "mainLogo")
-        return image
-    }()
+    // MARK: - Actions
+    // IBAction 및 사용자 인터랙션과 관련된 메서드 정의
+    override func configureUI() {
+    }
+    
+    override func addview() {
+    }
+    
+    override func layout() {
+    }
+    
+    // MARK: - Helpers
+    // 설정, 데이터처리 등 액션 외의 메서드를 정의
 }

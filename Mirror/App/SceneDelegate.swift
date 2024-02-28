@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let mainViewController = HomeVC() // 맨 처음 보여줄 ViewControllers
+        let mainViewController = TabBarVC() // 맨 처음 보여줄 ViewControllers
  
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
