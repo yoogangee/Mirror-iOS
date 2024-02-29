@@ -52,10 +52,19 @@ class TabBarVC: UITabBarController {
     }
     
     override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
-            var tabFrame = self.tabBar.frame
-            tabFrame.size.height = HEIGHT_TAB_BAR
-            tabFrame.origin.y = self.view.frame.size.height - HEIGHT_TAB_BAR
-            self.tabBar.frame = tabFrame
+        super.viewDidLayoutSubviews()
+        var tabFrame = self.tabBar.frame
+        tabFrame.size.height = HEIGHT_TAB_BAR
+        tabFrame.origin.y = self.view.frame.size.height - HEIGHT_TAB_BAR
+        self.tabBar.frame = tabFrame
+    }
+    
+    func checkTutorialRun() {
+        let userDefault = UserDefaults.standard
+        if userDefault.bool(forKey: "Onboarding") == false {
+            let onboardingVC = OnboardingVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
+            onboardingVC.modalPresentationStyle = .fullScreen
+            present(onboardingVC, animated: false)
         }
+    }
 }
