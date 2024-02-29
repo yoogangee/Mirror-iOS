@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
  
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
+        
+        mainViewController.checkTutorialRun()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -22,6 +22,8 @@
 		5AF7F1A42B8B6C7A00EF72E7 /* TextReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A32B8B6C7A00EF72E7 /* TextReadingVC.swift */; };
 		5AF7F1A62B8B6DA900EF72E7 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A52B8B6DA900EF72E7 /* TabBarVC.swift */; };
 		5AF7F1A82B8B787200EF72E7 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1A72B8B787200EF72E7 /* Color+.swift */; };
+		5AF7F1C22B8F232900EF72E7 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1C12B8F232900EF72E7 /* OnboardingVC.swift */; };
+		5AF7F1C62B8F284900EF72E7 /* OnboardingContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F1C52B8F284900EF72E7 /* OnboardingContentsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		5AF7F1A32B8B6C7A00EF72E7 /* TextReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReadingVC.swift; sourceTree = "<group>"; };
 		5AF7F1A52B8B6DA900EF72E7 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		5AF7F1A72B8B787200EF72E7 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		5AF7F1C12B8F232900EF72E7 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		5AF7F1C52B8F284900EF72E7 /* OnboardingContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,8 @@
 		5AF7F1982B8B1F2800EF72E7 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7F1C12B8F232900EF72E7 /* OnboardingVC.swift */,
+				5AF7F1C52B8F284900EF72E7 /* OnboardingContentsVC.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -312,7 +318,9 @@
 				5AF7F1A02B8B6B9200EF72E7 /* FindObjectVC.swift in Sources */,
 				5AF7F19E2B8B20C900EF72E7 /* HomeVC.swift in Sources */,
 				09BC28762B64921B003F4263 /* Mirror.xcdatamodeld in Sources */,
+				5AF7F1C22B8F232900EF72E7 /* OnboardingVC.swift in Sources */,
 				09BC28922B649660003F4263 /* DefaultVC.swift in Sources */,
+				5AF7F1C62B8F284900EF72E7 /* OnboardingContentsVC.swift in Sources */,
 				5AF7F1A82B8B787200EF72E7 /* Color+.swift in Sources */,
 				09BC286E2B64921B003F4263 /* SceneDelegate.swift in Sources */,
 				09BC28942B6496A3003F4263 /* BaseController.swift in Sources */,
