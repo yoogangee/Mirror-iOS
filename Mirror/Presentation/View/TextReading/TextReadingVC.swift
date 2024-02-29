@@ -1,5 +1,5 @@
 //
-//  HomeVC.swift
+//  TextReadingVC.swift
 //  Mirror
 //
 //  Created by 경유진 on 2/25/24.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HomeVC: BaseController {
+class TextReadingVC: BaseController {
     
     // MARK: - Properties
     // 변수 및 상수, IBOutlet
