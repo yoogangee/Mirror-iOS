@@ -73,6 +73,7 @@ class OnboardingVC: UIPageViewController {
         nextBtn.backgroundColor = .mainBlue
         nextBtn.layer.cornerRadius = 8
         nextBtn.setTitle("다음", for: .normal)
+        nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         nextBtn.addTarget(self, action: #selector(butttonHandler), for: .touchUpInside)
     }
     
