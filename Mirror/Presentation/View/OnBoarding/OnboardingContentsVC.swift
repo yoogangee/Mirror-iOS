@@ -68,18 +68,3 @@ class OnboardingContentsVC: BaseController {
     // MARK: - Helpers
     // 설정, 데이터처리 등 액션 외의 메서드를 정의
 }
-
-// UILabel 행간 조절하기 위한 extension
-extension UILabel {
-    func setLineSpacing(spacing: CGFloat) {
-        guard let text = text else { return }
-
-        let attributeString = NSMutableAttributedString(string: text)
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = spacing
-        attributeString.addAttribute(.paragraphStyle,
-                                     value: style,
-                                     range: NSRange(location: 0, length: attributeString.length))
-        attributedText = attributeString
-    }
-}

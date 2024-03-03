@@ -14,6 +14,7 @@
 		09BC287B2B64921C003F4263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BC28792B64921C003F4263 /* LaunchScreen.storyboard */; };
 		09BC28922B649660003F4263 /* DefaultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC28912B649660003F4263 /* DefaultVC.swift */; };
 		09BC28942B6496A3003F4263 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC28932B6496A3003F4263 /* BaseController.swift */; };
+		5A1F80D12B9446F0005578A9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F80D02B9446F0005578A9 /* UILabel+.swift */; };
 		5AF7F1902B8B0B8100EF72E7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AF7F18F2B8B0B8100EF72E7 /* SnapKit */; };
 		5AF7F1922B8B0B8100EF72E7 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5AF7F1912B8B0B8100EF72E7 /* SnapKit-Dynamic */; };
 		5AF7F19E2B8B20C900EF72E7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF7F19D2B8B20C900EF72E7 /* HomeVC.swift */; };
@@ -36,6 +37,7 @@
 		09BC287C2B64921C003F4263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09BC28912B649660003F4263 /* DefaultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVC.swift; sourceTree = "<group>"; };
 		09BC28932B6496A3003F4263 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		5A1F80D02B9446F0005578A9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		5AF7F19D2B8B20C900EF72E7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		5AF7F19F2B8B6B9200EF72E7 /* FindObjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectVC.swift; sourceTree = "<group>"; };
 		5AF7F1A12B8B6C6900EF72E7 /* DescribingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribingVC.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF7F1A72B8B787200EF72E7 /* Color+.swift */,
+				5A1F80D02B9446F0005578A9 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				5AF7F1A22B8B6C6900EF72E7 /* DescribingVC.swift in Sources */,
 				5AF7F1A62B8B6DA900EF72E7 /* TabBarVC.swift in Sources */,
 				09BC286C2B64921B003F4263 /* AppDelegate.swift in Sources */,
+				5A1F80D12B9446F0005578A9 /* UILabel+.swift in Sources */,
 				5AF7F1A02B8B6B9200EF72E7 /* FindObjectVC.swift in Sources */,
 				5AF7F19E2B8B20C900EF72E7 /* HomeVC.swift in Sources */,
 				09BC28762B64921B003F4263 /* Mirror.xcdatamodeld in Sources */,
