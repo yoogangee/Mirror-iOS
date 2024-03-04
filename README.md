@@ -11,13 +11,9 @@
 
 ### 프로젝트 구조
 ├── Mirror_ios
-
 │   ├── App
-
 │   ├── Global
-
 │   │   ├── Extension
-
 │   │   ├── Resource
 │   │   │   └── Assets.xcassets
 │   │   ├── Template
