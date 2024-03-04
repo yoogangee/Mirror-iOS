@@ -1,7 +1,7 @@
 # Mirror-iOS
 
 ### 개발환경 
-- 미니멈 배포버전: iOS 14.0 
+- 미니멈 배포버전: iOS 16.0 
 - Xcode 14.3
 - 서버 통신 : URL Session
 
@@ -11,7 +11,7 @@
 - 언어: Swift
 - 라이브러리
   > SnapKit - 레이아웃 설정 <br>
-  > VisionKit - 문서 및 이미지 OCR <br>
+  > VisionKit - 문서 및 이미지 OCR (최소 16.0) <br>
   
 ### 프로젝트 구조
 <aside>
