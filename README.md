@@ -16,20 +16,20 @@
 ### 프로젝트 구조
 <aside>
   
-> ├── Mirror_ios <br>
-> │   ├── App <br>
-> │   ├── Global <br>
-> │   │   ├── Extension <br>
-> │   │   ├── Resource <br>
-> │   │   │   └── Assets.xcassets <br>
-> │   │   ├── Template <br>
-> │   │   └── Util <br>
-> │   ├── Network <br>
-> │   │   ├── API <br>
-> │   │   └── Model <br>
-> │   └── Presentation <br>
-> │       ├── View <br>
-> │       └── ViewModel <br>
-> └── Mirror_ios.xcodeproj <br>
+├── Mirror_ios <br>
+│   ├── App <br>
+│   ├── Global <br>
+│   │   ├── Extension <br>
+│   │   ├── Resource <br>
+│   │   │   └── Assets.xcassets <br>
+│   │   ├── Template <br>
+│   │   └── Util <br>
+│   ├── Network <br>
+│   │   ├── API <br>
+│   │   └── Model <br>
+│   └── Presentation <br>
+│       ├── View <br>
+│       └── ViewModel <br>
+└── Mirror_ios.xcodeproj <br>
 
 </aside>
