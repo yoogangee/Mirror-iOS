@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import VisionKit
 
 class TextReadingVC: BaseController {
     // MARK: - Properties
@@ -20,6 +21,9 @@ class TextReadingVC: BaseController {
     // MARK: - Actions
     // IBAction 및 사용자 인터랙션과 관련된 메서드 정의
     override func configureUI() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.topItem?.title = "문서읽기"
+
     }
     
     override func addview() {
