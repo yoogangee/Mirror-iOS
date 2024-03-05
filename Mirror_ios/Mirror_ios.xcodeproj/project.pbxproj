@@ -25,6 +25,7 @@
 		5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F821B2B95BE40005578A9 /* TextReadingVC.swift */; };
 		5A1F82202B95BEDB005578A9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F821F2B95BEDB005578A9 /* ViewModel.swift */; };
 		5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82232B95C22F005578A9 /* UILabel+.swift */; };
+		5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		5A1F821B2B95BE40005578A9 /* TextReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReadingVC.swift; sourceTree = "<group>"; };
 		5A1F821F2B95BEDB005578A9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5A1F82232B95C22F005578A9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectCameraVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1F82192B95BE35005578A9 /* FindObjectVC.swift */,
+				5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */,
 			);
 			path = FindObject;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			files = (
 				5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */,
 				5A1F82082B95BD5D005578A9 /* Model.swift in Sources */,
+				5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */,
 				5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */,
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
 				5A1F82062B95BD53005578A9 /* APIManager.swift in Sources */,
