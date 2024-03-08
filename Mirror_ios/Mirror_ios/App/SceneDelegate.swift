@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var windowWidth: CGFloat?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -25,6 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
         mainViewController.checkTutorialRun()
+        
+        changeStatusBarBackgroundColor(color: UIColor.white)
+        
+        // window의 넓이 추출
+        windowWidth = windowScene.coordinateSpace.bounds.width
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -58,3 +65,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    func changeStatusBarBackgroundColor(color: UIColor) {
+        let statusBarManager = window?.windowScene?.statusBarManager
+        let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? .zero)
+        statusBarView.backgroundColor = color
+        window?.addSubview(statusBarView)
+    }
+}

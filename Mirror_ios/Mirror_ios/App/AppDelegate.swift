@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // MARK: - 기본 네비게이션 바 커스텀
+        let appearance = UINavigationBar.appearance()
+        
+        // 배경색을 화이트로 설정
+        appearance.backgroundColor = UIColor.customWhite
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.customBlack,
+                                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)]
+        
         return true
     }
 
