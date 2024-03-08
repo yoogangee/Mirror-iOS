@@ -8,6 +8,8 @@
 import UIKit
 import VisionKit
 import AVFoundation
+import Vision
+import VisionKit
 
 class TextReadingVC: BaseController {
     // MARK: - Properties
@@ -201,6 +203,11 @@ class TextReadingVC: BaseController {
         // 블러뷰와 촬영버튼
         view.addSubview(blurredView)
         view.addSubview(shutterButton)
+        
+        // 요약 뷰 추가
+        view.addSubview(summaryView)
+        summaryView.addSubview(summaryVStackView)
+        summaryView.addSubview(arrowView)
 
     }
     
@@ -213,6 +220,38 @@ class TextReadingVC: BaseController {
         shutterButton.snp.makeConstraints {
             $0.centerX.centerY.equalTo(blurredView)
         }
+        
+        // 요약 뷰 레이아웃 설정
+        summaryLabel.snp.makeConstraints {
+            $0.width.equalTo(summaryVStackView)
+        }
+        
+        showAllBtn.snp.makeConstraints {
+            $0.width.equalTo(summaryVStackView)
+            $0.height.equalTo(55)
+        }
+        
+        summaryView.snp.makeConstraints {
+            $0.centerX.width.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(summaryVStackView).offset(20 + 6.8)
+        }
+        
+        summaryVStackView.snp.makeConstraints {
+            $0.centerX.centerY.equalTo(summaryView)
+        }
+        
+        arrowView.snp.makeConstraints{
+            $0.top.equalTo(summaryVStackView.snp.bottom)
+            $0.width.equalTo(summaryView)
+            $0.height.equalTo(6.8)
+        }
+        
+        arrowImage.snp.makeConstraints {
+            $0.centerX.equalTo(arrowView)
+            $0.width.equalTo(17.45)
+            $0.height.equalTo(6.8)
+        }
     }
     
     func setSummaryView(text: String) {
@@ -224,48 +263,9 @@ class TextReadingVC: BaseController {
         } else {
             // 내용 삽입
             summaryLabel.text = text
-            
-            // 요약 뷰 추가
-            view.addSubview(summaryView)
-            summaryView.addSubview(summaryVStackView)
-            summaryView.addSubview(arrowView)
-            
-            // 요약 뷰 레이아웃 설정
-            summaryLabel.snp.makeConstraints {
-                $0.width.equalTo(summaryVStackView)
-            }
-            
-            showAllBtn.snp.makeConstraints {
-                $0.width.equalTo(summaryVStackView)
-                $0.height.equalTo(55)
-            }
-            
-            summaryView.snp.makeConstraints {
-                $0.centerX.width.equalToSuperview()
-                $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
-                $0.height.equalTo(summaryVStackView).offset(20 + 6.8)
-            }
-            
-            summaryVStackView.snp.makeConstraints {
-                $0.centerX.centerY.equalTo(summaryView)
-            }
-            
-            arrowView.snp.makeConstraints{
-                $0.top.equalTo(summaryVStackView.snp.bottom)
-                $0.width.equalTo(summaryView)
-                $0.height.equalTo(6.8)
-            }
-            
-            arrowImage.snp.makeConstraints {
-                $0.centerX.equalTo(arrowView)
-                $0.width.equalTo(17.45)
-                $0.height.equalTo(6.8)
-            }
-            
-            DispatchQueue.main.async { [self] in
-                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.6)
-                slideingFlag = true
-            }
+        
+            slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.6)
+            slideingFlag = true
         }
     }
     
@@ -350,6 +350,65 @@ class TextReadingVC: BaseController {
         }
     }
     
+    // OCR 함수
+    fileprivate func runOCR(image: UIImage?) {
+        // CGImage로 변환
+        guard let cgImage = image?.cgImage else {
+            fatalError("이미지를 얻을 수 없습니다.")
+        }
+        
+        // VNRecognizeTextRequest 인스턴스 생성
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        let request = VNRecognizeTextRequest{ [weak self]request, error in
+            
+            guard let observations = request.results as? [VNRecognizedTextObservation],
+                  error == nil else{
+                return
+            }
+            
+            // 한 줄이 끝나는 부분마다 \n
+            let text = observations.compactMap({
+                $0.topCandidates(1).first?.string
+            }).joined(separator: "\n")
+
+            // ui 변경은 main thread에서만 가능
+            SharedData.shared.recognizedFullText = text
+            print(text)
+        }
+        
+        // Vision 버전과 언어 설정
+        if #available(iOS 16.0, *) {
+            let revision3 = VNRecognizeTextRequestRevision3
+            request.revision = revision3
+            request.recognitionLevel = .accurate
+            request.recognitionLanguages =  ["ko-KR"]
+            request.usesLanguageCorrection = true
+
+            do {
+                var possibleLanguages: Array<String> = []
+                possibleLanguages = try request.supportedRecognitionLanguages()
+                print(possibleLanguages)
+            } catch {
+                print("Error getting the supported languages.")
+            }
+        } else {
+            print("iOS 버전상의 이슈로 영어 인식만 지원합니다.")
+            // Fallback on earlier versions
+            request.recognitionLanguages =  ["en-US"]
+            request.usesLanguageCorrection = true
+        }
+        
+        // Request Handler 동작
+        do{
+            try handler.perform([request])
+        } catch {
+            // 에러 처리
+            SharedData.shared.recognizedFullText = "\(error)"
+            print(error)
+        }
+        
+    }
+    
     // MARK: - animations
     func slideAnimation(_ view: UIView, slideDistance: CGFloat, duration: CGFloat) {
         UIView.animate(withDuration: duration, delay: 0, options: [], animations: {
@@ -429,7 +488,7 @@ extension TextReadingVC: AVCapturePhotoCaptureDelegate {
         let capturedImage = UIImage(data: imageData)
         // Captured image is available here, you can use it as needed
         // TODO: - 이미지에서 텍스트 추출
-        SharedData.shared.recognizedFullText = "인식된 전문" // TODO: - fullTextLabel에 전문 내용 할당
+        runOCR(image: capturedImage)
         
         // TODO: - GPT로 텍스트 요약및 내용 할당
         setSummaryView(text: "GPT가 새로 요약해준 내용이지요~!")
