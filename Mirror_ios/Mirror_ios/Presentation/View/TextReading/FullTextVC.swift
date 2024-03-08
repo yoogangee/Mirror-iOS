@@ -12,6 +12,9 @@ class FullTextVC: BaseController {
     // MARK: - Properties
     // 변수 및 상수, IBOutlet
     
+    // TextReadingVC의 isExistSummary 변수 값 접근에 사용할 delegate
+    weak var textReadingDelegate: TextReadingDelegate?
+    
     let infoLabel: UILabel = {
        let label = UILabel()
         
@@ -38,6 +41,14 @@ class FullTextVC: BaseController {
         return button
     }()
     
+    let fullTextLabel: ScrollPaddingLabel = {
+        let view = ScrollPaddingLabel(padding: UIEdgeInsets(top: 19, left: 20, bottom: 19, right: 20))
+        
+        view.setText(SharedData.shared.recognizedFullText)
+        
+        return view
+    }()
+    
     // MARK: - Lifecycle
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
     override func viewDidLoad() {
@@ -49,13 +60,16 @@ class FullTextVC: BaseController {
     override func configureUI() {
         view.backgroundColor = UIColor.customWhite
         
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.topItem?.title = "문서 전문 보기"
+        self.title = "문서 전문 보기"
+
+        navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func addview() {
         view.addSubview(infoLabel)
         view.addSubview(backBtn)
+        view.addSubview(fullTextLabel)
     }
     
     override func layout() {
@@ -67,10 +81,18 @@ class FullTextVC: BaseController {
             make.bottom.left.right.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 0, left: 23, bottom: 16, right: 23))
             make.height.equalTo(55)
         }
+        
+        fullTextLabel.snp.makeConstraints { make in
+            make.left.right.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 0, left: 23, bottom: 0, right: 23))
+            make.top.equalTo(infoLabel.snp.bottom).offset(15)
+            make.bottom.equalTo(backBtn.snp.top).offset(-19)
+        }
     }
     
     @objc func clickedbackBtn() {
         print("뒤로!")
+        
+        textReadingDelegate?.upDateisExistSummary(false)
         navigationController?.popViewController(animated: true)
     }
     
