@@ -58,6 +58,7 @@ class TabBarVC: UITabBarController {
         textReadingVC.tabBarItem = textReadingTabBarItem
         
         self.viewControllers = [homeVC, findObjectVC, describingVC, textReadingVC]
+        self.selectedIndex = 3
     
     }
     
