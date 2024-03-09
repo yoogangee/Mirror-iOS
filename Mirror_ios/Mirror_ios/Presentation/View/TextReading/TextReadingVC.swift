@@ -10,14 +10,16 @@ import VisionKit
 import AVFoundation
 import Vision
 import VisionKit
+import OpenAI
 
 class TextReadingVC: BaseController {
     // MARK: - Properties
     // 변수 및 상수, IBOutlet
     
+    var summaryViewHeight: CGFloat = 0
+    
     // 슬라이드 애니메이션에 사용될 값
     var slidingDistance: CGFloat = 0
-    var slideingFlag: Bool = false // false : 올리기 활성화
     var isExistSummary: Bool = false // summaryView
     
     // AVCaptureSession: 카메라와 마이크의 비디오 및 오디오 데이터를 캡처하는 데 사용되는 객체
@@ -103,6 +105,7 @@ class TextReadingVC: BaseController {
        let label = UILabel()
         
         label.text = "전문이 궁금하시다면 하단 파란색 버튼을 클릭하세요."
+        label.textAlignment = .center
         label.textColor = UIColor.customBlack
         label.backgroundColor = UIColor.clear
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
@@ -125,14 +128,15 @@ class TextReadingVC: BaseController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.addTarget(self, action: #selector(clickedShowAllBtn), for: .touchUpInside)
         
+        button.translatesAutoresizingMaskIntoConstraints = true
+        button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
         return button
     }()
 
     
     let arrowImage: UIImageView = {
         let imageView = UIImageView(image: UIImage.upArrow)
-        
-        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -141,6 +145,7 @@ class TextReadingVC: BaseController {
         let view = UIView()
         
         view.addSubview(arrowImage)
+        view.heightAnchor.constraint(equalToConstant: 27).isActive = true
         
         return view
     }()
@@ -222,20 +227,28 @@ class TextReadingVC: BaseController {
         }
         
         // 요약 뷰 레이아웃 설정
+        gptHStackView.snp.makeConstraints {
+            $0.width.equalTo(summaryView).offset(-36)
+        }
+        
         summaryLabel.snp.makeConstraints {
-            $0.width.equalTo(summaryVStackView)
+            $0.width.equalTo(summaryView).offset(-36)
+        }
+        
+        infoLabel.snp.makeConstraints {
+
+            $0.width.equalTo(summaryView).offset(-36)
         }
         
         showAllBtn.snp.makeConstraints {
-            $0.width.equalTo(summaryVStackView)
-            $0.height.equalTo(55)
+            $0.width.equalTo(summaryView).offset(-36)
         }
         
         summaryView.snp.makeConstraints {
             $0.centerX.width.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.height.equalTo(summaryVStackView).offset(20 + 6.8)
+            $0.height.equalTo(summaryVStackView).offset(27)
         }
+        summaryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         summaryVStackView.snp.makeConstraints {
             $0.centerX.centerY.equalTo(summaryView)
@@ -244,33 +257,34 @@ class TextReadingVC: BaseController {
         arrowView.snp.makeConstraints{
             $0.top.equalTo(summaryVStackView.snp.bottom)
             $0.width.equalTo(summaryView)
-            $0.height.equalTo(6.8)
         }
         
         arrowImage.snp.makeConstraints {
             $0.centerX.equalTo(arrowView)
-            $0.width.equalTo(17.45)
-            $0.height.equalTo(6.8)
         }
     }
     
     func setSummaryView(text: String) {
         if isExistSummary {
-            // TODO: - 로딩 이미지 삽입
-            
-            // 내용 변경
-            summaryLabel.text = text
-        } else {
-            // 내용 삽입
-            summaryLabel.text = text
-        
-            slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.6)
-            slideingFlag = true
-        }
-    }
     
-    func removeSummaryView() {
-        summaryView.removeFromSuperview()
+            DispatchQueue.main.async { [self] in
+                // 내용 변경
+                summaryLabel.text = text
+                
+                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
+            }
+            
+        } else {
+            
+            print("summaryView 내리기")
+            DispatchQueue.main.async { [self] in
+                // 내용 삽입
+                summaryLabel.text = text
+                
+                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
+                isExistSummary = true
+            }
+        }
     }
     
     // MARK: - Helpers
@@ -322,18 +336,17 @@ class TextReadingVC: BaseController {
 //        let height = summaryView.frame.maxY
         
         if recognizer.state == .ended { // 움직임 끝남
-            slideingFlag = !slideingFlag
             //going down
             if velocity.y>0 {
                 print("요약화면 아래로 움직임")
-                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.5)
+                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
                 print(summaryView.frame.maxY)
                 arrowImage.image = UIImage.upArrow
             }
             //going up
             else {
                 print("요약화면 위로 움직임")
-                slideAnimation(summaryView, slideDistance: summaryView.frame.height-slidingDistance, duration: 0.5)
+                slideAnimation(summaryView, slideDistance: 25, duration: 0.3)
                 print(summaryView.frame.maxY)
                 arrowImage.image = UIImage.downArrow
             }
@@ -344,13 +357,41 @@ class TextReadingVC: BaseController {
 //                    self.summaryView.layoutIfNeeded()
 //                })
 //            }
-//            
+//
 //            // 제스처 초기화
 //            recognizer.setTranslation(.zero, in: summaryView)
         }
     }
     
-    // OCR 함수
+    // MARK: - GPT
+    func runGPT(query: CompletionsQuery) {
+        let openAI = OpenAI(apiToken: "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")
+        let query = query
+        openAI.completions(query: query) { result in
+            //Handle result here
+            print(result)
+            switch result {
+            case .success(let result):
+                // 성공한 경우
+                let stringValue = "\(result)"
+                SharedData.shared.summaryText = stringValue
+                
+                DispatchQueue.main.async { [self] in
+                    setSummaryView(text: SharedData.shared.summaryText)
+                }
+            case .failure(let error):
+                // 실패한 경우
+                print("Error: \(error.localizedDescription)")
+                SharedData.shared.summaryText = "\(error.localizedDescription)\n위의 이유로 GPT를 이용한 요약을 수행할 수 없습니다."
+                
+                DispatchQueue.main.async { [self] in
+                    setSummaryView(text: SharedData.shared.summaryText)
+                }
+            }
+        }
+    }
+    
+    // MARK: - OCR
     fileprivate func runOCR(image: UIImage?) {
         // CGImage로 변환
         guard let cgImage = image?.cgImage else {
@@ -373,7 +414,10 @@ class TextReadingVC: BaseController {
 
             // ui 변경은 main thread에서만 가능
             SharedData.shared.recognizedFullText = text
-            print(text)
+            print("OCR 결과: \(text)")
+            
+            self?.runGPT(query: CompletionsQuery(model: .gpt3_5Turbo, prompt: "\(SharedData.shared.recognizedFullText)\n위의 글을 요약해줘.", temperature: 0, maxTokens: 5000, topP: 1, frequencyPenalty: 0, presencePenalty: 0, stop: ["\\n"]))
+            
         }
         
         // Vision 버전과 언어 설정
@@ -404,7 +448,9 @@ class TextReadingVC: BaseController {
         } catch {
             // 에러 처리
             SharedData.shared.recognizedFullText = "\(error)"
-            print(error)
+            print("OCR 에러: \(error)")
+            
+            self.setSummaryView(text: "사진 상의 문자를 인식하는 과정에서 오류가 발생했습니다. 다시 시도해주세요.")
         }
         
     }
@@ -489,15 +535,14 @@ extension TextReadingVC: AVCapturePhotoCaptureDelegate {
         // Captured image is available here, you can use it as needed
         // TODO: - 이미지에서 텍스트 추출
         runOCR(image: capturedImage)
-        
-        // TODO: - GPT로 텍스트 요약및 내용 할당
-        setSummaryView(text: "GPT가 새로 요약해준 내용이지요~!")
     }
 }
 
 extension TextReadingVC: TextReadingDelegate {
-    func upDateisExistSummary(_ isExist: Bool) {
-        isExistSummary = isExist
-        removeSummaryView()
+    func deleteSummaryView() {
+        isExistSummary = false
+        DispatchQueue.main.async { [self] in
+            slideAnimation(summaryView, slideDistance: 0, duration: 0.3)
+        }
     }
 }

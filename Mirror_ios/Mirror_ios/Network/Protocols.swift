@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol TextReadingDelegate: AnyObject {
-    func upDateisExistSummary(_ isExist: Bool)
+    func deleteSummaryView()
 }
