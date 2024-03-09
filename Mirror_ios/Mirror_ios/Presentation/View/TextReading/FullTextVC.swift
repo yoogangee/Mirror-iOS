@@ -92,7 +92,7 @@ class FullTextVC: BaseController {
     @objc func clickedbackBtn() {
         print("뒤로!")
         
-        textReadingDelegate?.upDateisExistSummary(false)
+        textReadingDelegate?.deleteSummaryView()
         navigationController?.popViewController(animated: true)
     }
     
