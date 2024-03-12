@@ -29,7 +29,6 @@
 		5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82292B96FEA2005578A9 /* VideoCapture.swift */; };
 		5A1F822D2B970847005578A9 /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F822C2B970847005578A9 /* yolov8s.mlpackage */; };
 		5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */; };
-		5A1F82332B970A27005578A9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82322B970A27005578A9 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +74,6 @@
 		5A1F82292B96FEA2005578A9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		5A1F822C2B970847005578A9 /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8s.mlpackage; path = ../../../../../../../../Downloads/yolov8s.mlpackage; sourceTree = "<group>"; };
 		5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
-		5A1F82322B970A27005578A9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				5A1F82232B95C22F005578A9 /* UILabel+.swift */,
-				5A1F82322B970A27005578A9 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -437,7 +434,6 @@
 				5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */,
 				5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */,
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
-				5A1F82332B970A27005578A9 /* UIImage+.swift in Sources */,
 				5A1F82062B95BD53005578A9 /* APIManager.swift in Sources */,
 				5A1F82142B95BE0D005578A9 /* OnboardingContentsVC.swift in Sources */,
 				5A1F82182B95BE29005578A9 /* DescribingVC.swift in Sources */,
