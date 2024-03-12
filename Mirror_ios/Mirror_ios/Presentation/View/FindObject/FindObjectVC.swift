@@ -69,6 +69,7 @@ class FindObjectVC: BaseController {
     // 설정, 데이터처리 등 액션 외의 메서드를 정의
     @objc func openCamera() {
         let findObjectCameraVC = FindObjectCameraVC()
+        //findObjectCameraVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(findObjectCameraVC, animated: true)
     }
 }
