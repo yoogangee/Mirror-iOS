@@ -30,6 +30,10 @@
 		5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F821B2B95BE40005578A9 /* TextReadingVC.swift */; };
 		5A1F82202B95BEDB005578A9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F821F2B95BEDB005578A9 /* ViewModel.swift */; };
 		5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82232B95C22F005578A9 /* UILabel+.swift */; };
+		5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */; };
+		5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82292B96FEA2005578A9 /* VideoCapture.swift */; };
+		5A1F822D2B970847005578A9 /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F822C2B970847005578A9 /* yolov8s.mlpackage */; };
+		5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		5A1F821B2B95BE40005578A9 /* TextReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReadingVC.swift; sourceTree = "<group>"; };
 		5A1F821F2B95BEDB005578A9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5A1F82232B95C22F005578A9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectCameraVC.swift; sourceTree = "<group>"; };
+		5A1F82292B96FEA2005578A9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		5A1F822C2B970847005578A9 /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8s.mlpackage; path = ../../../../../../../../Downloads/yolov8s.mlpackage; sourceTree = "<group>"; };
+		5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +252,11 @@
 		5A1F820C2B95BD84005578A9 /* FindObject */ = {
 			isa = PBXGroup;
 			children = (
+				5A1F822B2B970834005578A9 /* Model */,
 				5A1F82192B95BE35005578A9 /* FindObjectVC.swift */,
+				5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */,
+				5A1F82292B96FEA2005578A9 /* VideoCapture.swift */,
+				5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */,
 			);
 			path = FindObject;
 			sourceTree = "<group>";
@@ -285,6 +297,14 @@
 				5A1F821F2B95BEDB005578A9 /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5A1F822B2B970834005578A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A1F822C2B970847005578A9 /* yolov8s.mlpackage */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +447,7 @@
 			files = (
 				5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */,
 				5A1F82082B95BD5D005578A9 /* Model.swift in Sources */,
+				5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */,
 				5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */,
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
 				09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */,
@@ -438,6 +459,9 @@
 				5A1F82002B95BC42005578A9 /* BaseController.swift in Sources */,
 				5A1F821A2B95BE35005578A9 /* FindObjectVC.swift in Sources */,
 				5A1F82202B95BEDB005578A9 /* ViewModel.swift in Sources */,
+				5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */,
+				5A1F822D2B970847005578A9 /* yolov8s.mlpackage in Sources */,
+				5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */,
 				5A1F81C52B95B6BB005578A9 /* AppDelegate.swift in Sources */,
 				5A1F82102B95BDF2005578A9 /* TabbarVC.swift in Sources */,
 				09D61A392B9B5D7B006DCE6C /* Protocols.swift in Sources */,
