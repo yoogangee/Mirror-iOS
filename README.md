@@ -33,3 +33,6 @@
 └── Mirror_ios.xcodeproj <br>
 
 </aside>
+
+### 사용 모델
+- 물건 찾기 기능(object detection) : yolov8s
