@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093D7AF52BA157D40015EB6D /* TTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AF42BA157D40015EB6D /* TTS.swift */; };
 		09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFD7552B98583200816BE6 /* PaddingLabel.swift */; };
 		09D61A362B9B0354006DCE6C /* FullTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A352B9B0354006DCE6C /* FullTextVC.swift */; };
 		09D61A392B9B5D7B006DCE6C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A382B9B5D7B006DCE6C /* Protocols.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		093D7AF42BA157D40015EB6D /* TTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS.swift; sourceTree = "<group>"; };
 		09AFD7552B98583200816BE6 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		09D61A352B9B0354006DCE6C /* FullTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTextVC.swift; sourceTree = "<group>"; };
 		09D61A382B9B5D7B006DCE6C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				5A1F81FF2B95BC42005578A9 /* BaseController.swift */,
 				09AFD7552B98583200816BE6 /* PaddingLabel.swift */,
+				093D7AF42BA157D40015EB6D /* TTS.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
 				09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */,
 				5A1F82062B95BD53005578A9 /* APIManager.swift in Sources */,
+				093D7AF52BA157D40015EB6D /* TTS.swift in Sources */,
 				5A1F82142B95BE0D005578A9 /* OnboardingContentsVC.swift in Sources */,
 				09D61A362B9B0354006DCE6C /* FullTextVC.swift in Sources */,
 				5A1F82182B95BE29005578A9 /* DescribingVC.swift in Sources */,
