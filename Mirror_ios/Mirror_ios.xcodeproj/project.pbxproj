@@ -11,6 +11,7 @@
 		093D7AF92BA167AE0015EB6D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AF82BA167AE0015EB6D /* Endpoint.swift */; };
 		093D7AFB2BA188030015EB6D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AFA2BA188030015EB6D /* NetworkManager.swift */; };
 		093D7AFD2BA18A590015EB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AFC2BA18A590015EB6D /* CustomError.swift */; };
+		09ACB6892BA1F0F60079179D /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 09ACB6882BA1F0F50079179D /* yolov8s.mlpackage */; };
 		09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFD7552B98583200816BE6 /* PaddingLabel.swift */; };
 		09D61A362B9B0354006DCE6C /* FullTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A352B9B0354006DCE6C /* FullTextVC.swift */; };
 		09D61A392B9B5D7B006DCE6C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A382B9B5D7B006DCE6C /* Protocols.swift */; };
@@ -61,6 +62,7 @@
 		093D7AF82BA167AE0015EB6D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		093D7AFA2BA188030015EB6D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		093D7AFC2BA18A590015EB6D /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		09ACB6882BA1F0F50079179D /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = yolov8s.mlpackage; sourceTree = "<group>"; };
 		09AFD7552B98583200816BE6 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		09D61A352B9B0354006DCE6C /* FullTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTextVC.swift; sourceTree = "<group>"; };
 		09D61A382B9B5D7B006DCE6C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		5A1F820C2B95BD84005578A9 /* FindObject */ = {
 			isa = PBXGroup;
 			children = (
+				09ACB6882BA1F0F50079179D /* yolov8s.mlpackage */,
 				5A1F82192B95BE35005578A9 /* FindObjectVC.swift */,
 				5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */,
 				5A1F82292B96FEA2005578A9 /* VideoCapture.swift */,
@@ -449,6 +452,7 @@
 				5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */,
 				5A1F82082B95BD5D005578A9 /* Model.swift in Sources */,
 				5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */,
+				09ACB6892BA1F0F60079179D /* yolov8s.mlpackage in Sources */,
 				5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */,
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
 				09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */,
