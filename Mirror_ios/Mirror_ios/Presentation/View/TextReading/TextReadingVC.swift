@@ -172,6 +172,12 @@ class TextReadingVC: BaseController {
     
     // MARK: - Lifecycle
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        TTS.shared.stop()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -276,6 +282,13 @@ class TextReadingVC: BaseController {
                 isExistSummary = true
             }
         }
+        
+        if summaryLabel.text == "" {
+            TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + "읽어드릴 문장이 없습니다.")
+        } else {
+            TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + (summaryLabel.text ?? "읽어드릴 문장이 없습니다."))
+        }
+        
     }
     
     // MARK: - Helpers
@@ -441,7 +454,7 @@ class TextReadingVC: BaseController {
             SharedData.shared.recognizedFullText = "\(error)"
             print("OCR 에러: \(error)")
             
-            self.setSummaryView(text: "사진 상의 문자를 인식하는 과정에서 오류가 발생했습니다. 다시 시도해주세요.")
+            self.setSummaryView(text: "사진 상의 문자를 인식하는 과정에서 오류가 발생했습니다. 다시 시도해주세요.\n에러를 확인하고 싶으시면, 하단의 문서 전문 보기 버튼을 클릭해주세요.")
         }
         
     }

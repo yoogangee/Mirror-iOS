@@ -53,6 +53,13 @@ class FullTextVC: BaseController {
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if fullTextLabel.getText() == "" {
+            TTS.shared.play("아래 내용은 추출한 문서 전문입니다.\n다른 문서를 인식하시거나 다른 기능을 이용하시려면 하단 파란색 [뒤로가기] 버튼을 클릭하세요.\n\n" + "읽어드릴 문장이 없습니다.")
+        } else {
+            TTS.shared.play("아래 내용은 추출한 문서 전문입니다.\n다른 문서를 인식하시거나 다른 기능을 이용하시려면 하단 파란색 [뒤로가기] 버튼을 클릭하세요.\n\n" + (fullTextLabel.getText() ?? "읽어드릴 문장이 없습니다."))
+        }
+        
     }
     
     // MARK: - Actions
@@ -92,6 +99,7 @@ class FullTextVC: BaseController {
     @objc func clickedbackBtn() {
         print("뒤로!")
         
+        TTS.shared.stop()
         textReadingDelegate?.deleteSummaryView()
         navigationController?.popViewController(animated: true)
     }

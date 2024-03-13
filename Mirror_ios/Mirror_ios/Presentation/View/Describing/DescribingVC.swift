@@ -93,6 +93,12 @@ class DescribingVC: BaseController {
     
     // MARK: - Lifecycle
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        TTS.shared.stop()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -212,6 +218,13 @@ class DescribingVC: BaseController {
                 isExistSummary = true
             }
         }
+        
+        if explainTextLabel.getText() == "" || explainTextLabel.getText() == nil {
+            TTS.shared.play("촬영하신 사진상에 설명드릴 상황이 없습니다.")
+        } else {
+            TTS.shared.play("촬영하신 사진상의 상황은 다음과 같습니다.\n\n" + explainTextLabel.getText()!)
+        }
+        
     }
     
     func getPhotoExplain() {
