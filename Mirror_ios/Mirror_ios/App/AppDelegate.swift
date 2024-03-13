@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFAudio
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = UIColor.customWhite
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.customBlack,
                                           NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)]
+        
+        // MARK: - 무음 시에도 소리 재생
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+        } catch let error as NSError {
+            print("Error : \(error), \(error.userInfo)")
+        }
+                
+        do {
+             try AVAudioSession.sharedInstance().setActive(true)
+        }
+          catch let error as NSError {
+            print("Error: Could not setActive to true: \(error), \(error.userInfo)")
+        }
         
         return true
     }
