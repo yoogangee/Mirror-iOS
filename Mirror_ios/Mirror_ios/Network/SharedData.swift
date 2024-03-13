@@ -12,4 +12,5 @@ class SharedData {
     static let shared = SharedData()
     var recognizedFullText: String = ""
     var summaryText: String = ""
+    var explainText: String = ""
 }
