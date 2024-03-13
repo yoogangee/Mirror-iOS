@@ -15,11 +15,8 @@ import OpenAI
 class TextReadingVC: BaseController {
     // MARK: - Properties
     // 변수 및 상수, IBOutlet
-    
-    var summaryViewHeight: CGFloat = 0
-    
+
     // 슬라이드 애니메이션에 사용될 값
-    var slidingDistance: CGFloat = 0
     var isExistSummary: Bool = false // summaryView
     
     // AVCaptureSession: 카메라와 마이크의 비디오 및 오디오 데이터를 캡처하는 데 사용되는 객체
@@ -184,9 +181,6 @@ class TextReadingVC: BaseController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        slidingDistance = summaryVStackView.frame.height + 7
-        print("slidingDistance:", slidingDistance)
     }
     
     // MARK: - Actions
@@ -265,12 +259,12 @@ class TextReadingVC: BaseController {
     }
     
     func setSummaryView(text: String) {
+        // 내용 삽입
+        summaryLabel.text = text
+        
         if isExistSummary {
     
             DispatchQueue.main.async { [self] in
-                // 내용 변경
-                summaryLabel.text = text
-                
                 slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
             }
             
@@ -278,9 +272,6 @@ class TextReadingVC: BaseController {
             
             print("summaryView 내리기")
             DispatchQueue.main.async { [self] in
-                // 내용 삽입
-                summaryLabel.text = text
-                
                 slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
                 isExistSummary = true
             }
@@ -521,6 +512,12 @@ extension TextReadingVC: UINavigationControllerDelegate, UIImagePickerController
 
 extension TextReadingVC: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        // 고해상도의 이미지 캡처 가능 설정
+        // 16.0에서 deprecated됨
+        if #unavailable(iOS 16.0) {
+            photoOutput.isHighResolutionCaptureEnabled = true
+        }
+        
         guard error == nil else {
             print("Error capturing photo: \(error!.localizedDescription)")
             return
