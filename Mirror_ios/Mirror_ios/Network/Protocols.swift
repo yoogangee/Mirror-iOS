@@ -11,3 +11,5 @@ import UIKit
 protocol TextReadingDelegate: AnyObject {
     func deleteSummaryView()
 }
+
+// MARK: 서버 연결

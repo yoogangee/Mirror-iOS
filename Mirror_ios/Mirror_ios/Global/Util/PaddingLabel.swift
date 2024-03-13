@@ -82,6 +82,10 @@ class ScrollPaddingLabel: UIScrollView {
         contentSize = CGSize(width: label.bounds.width + padding.left + padding.right, height: label.bounds.height + padding.top + padding.bottom)
     }
     
+    func getText() -> String? {
+        return label.text
+    }
+    
     override var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.height += padding.top + padding.bottom

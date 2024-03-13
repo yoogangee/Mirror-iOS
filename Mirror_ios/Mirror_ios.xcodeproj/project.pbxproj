@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		093D7AF52BA157D40015EB6D /* TTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AF42BA157D40015EB6D /* TTS.swift */; };
+		093D7AF92BA167AE0015EB6D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AF82BA167AE0015EB6D /* Endpoint.swift */; };
+		093D7AFB2BA188030015EB6D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AFA2BA188030015EB6D /* NetworkManager.swift */; };
+		093D7AFD2BA18A590015EB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D7AFC2BA18A590015EB6D /* CustomError.swift */; };
 		09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFD7552B98583200816BE6 /* PaddingLabel.swift */; };
 		09D61A362B9B0354006DCE6C /* FullTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A352B9B0354006DCE6C /* FullTextVC.swift */; };
 		09D61A392B9B5D7B006DCE6C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61A382B9B5D7B006DCE6C /* Protocols.swift */; };
@@ -33,7 +36,6 @@
 		5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82232B95C22F005578A9 /* UILabel+.swift */; };
 		5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */; };
 		5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82292B96FEA2005578A9 /* VideoCapture.swift */; };
-		5A1F822D2B970847005578A9 /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F822C2B970847005578A9 /* yolov8s.mlpackage */; };
 		5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		093D7AF42BA157D40015EB6D /* TTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS.swift; sourceTree = "<group>"; };
+		093D7AF82BA167AE0015EB6D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		093D7AFA2BA188030015EB6D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		093D7AFC2BA18A590015EB6D /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		09AFD7552B98583200816BE6 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		09D61A352B9B0354006DCE6C /* FullTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTextVC.swift; sourceTree = "<group>"; };
 		09D61A382B9B5D7B006DCE6C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -83,7 +88,6 @@
 		5A1F82232B95C22F005578A9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectCameraVC.swift; sourceTree = "<group>"; };
 		5A1F82292B96FEA2005578A9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
-		5A1F822C2B970847005578A9 /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8s.mlpackage; path = ../../../../../../../../Downloads/yolov8s.mlpackage; sourceTree = "<group>"; };
 		5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +210,7 @@
 				09D61A382B9B5D7B006DCE6C /* Protocols.swift */,
 				5A1F82042B95BD43005578A9 /* Model */,
 				5A1F82032B95BD3E005578A9 /* API */,
+				093D7AF82BA167AE0015EB6D /* Endpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1F82052B95BD53005578A9 /* APIManager.swift */,
+				093D7AFA2BA188030015EB6D /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1F82072B95BD5D005578A9 /* Model.swift */,
+				093D7AFC2BA18A590015EB6D /* CustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,7 +262,6 @@
 		5A1F820C2B95BD84005578A9 /* FindObject */ = {
 			isa = PBXGroup;
 			children = (
-				5A1F822B2B970834005578A9 /* Model */,
 				5A1F82192B95BE35005578A9 /* FindObjectVC.swift */,
 				5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */,
 				5A1F82292B96FEA2005578A9 /* VideoCapture.swift */,
@@ -300,14 +306,6 @@
 				5A1F821F2B95BEDB005578A9 /* ViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		5A1F822B2B970834005578A9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5A1F822C2B970847005578A9 /* yolov8s.mlpackage */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,9 +460,10 @@
 				5A1F81FE2B95BC23005578A9 /* DefaultVC.swift in Sources */,
 				5A1F82002B95BC42005578A9 /* BaseController.swift in Sources */,
 				5A1F821A2B95BE35005578A9 /* FindObjectVC.swift in Sources */,
+				093D7AFD2BA18A590015EB6D /* CustomError.swift in Sources */,
 				5A1F82202B95BEDB005578A9 /* ViewModel.swift in Sources */,
 				5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */,
-				5A1F822D2B970847005578A9 /* yolov8s.mlpackage in Sources */,
+				093D7AFB2BA188030015EB6D /* NetworkManager.swift in Sources */,
 				5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */,
 				5A1F81C52B95B6BB005578A9 /* AppDelegate.swift in Sources */,
 				5A1F82102B95BDF2005578A9 /* TabbarVC.swift in Sources */,
@@ -472,6 +471,7 @@
 				09D61A3B2B9B62A7006DCE6C /* SharedData.swift in Sources */,
 				5A1F82162B95BE19005578A9 /* HomeVC.swift in Sources */,
 				5A1F81C72B95B6BB005578A9 /* SceneDelegate.swift in Sources */,
+				093D7AF92BA167AE0015EB6D /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

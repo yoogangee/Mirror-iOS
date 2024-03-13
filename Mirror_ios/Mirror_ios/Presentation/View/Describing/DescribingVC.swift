@@ -217,13 +217,31 @@ class DescribingVC: BaseController {
     func getPhotoExplain() {
         // 서버에 사진 보내고 설명 받기
         
-        SharedData.shared.explainText = "서버에서 보내온 텍스트" // TODO: 서버에서 받아온 사진에 대한 설명 설정
-        DispatchQueue.main.async { [self] in
-            explainTextLabel.setText(SharedData.shared.explainText)
-            isExistSummary = true
+        connectingServer {
+            DispatchQueue.main.async { [self] in
+                explainTextLabel.setText(SharedData.shared.explainText)
+                isExistSummary = true
+                setExplainView()
+            }
         }
         
-        setExplainView()
+        
+    }
+    
+    func connectingServer(completion: @escaping () -> Void) {
+        
+        NetworkManager.shared.getImageCaption(image: UIImage(named: "testImage")!) { result in
+            switch result {
+            case .success(let data):
+                print("\n\n\n만들어진 캡션 문장: \(data)\n\n\n")
+                SharedData.shared.explainText = data
+            case .failure(let error):
+                print("캡션 문장을 생성하는 도중 에러가 발생했습니다. 다시 시도해주세요.")
+                SharedData.shared.explainText = "캡션 문장을 생성하는 도중 \(error) 에러가 발생했습니다. 다시 시도해주세요."
+                
+            }
+            completion()
+        }
         
     }
     
@@ -328,7 +346,6 @@ extension DescribingVC: AVCapturePhotoCaptureDelegate {
         let capturedImage = UIImage(data: imageData)
         // Captured image is available here, you can use it as needed
         // TODO: - 이미지에서 텍스트 추출
-        print("나는 이미지 묘사 페이지")
         
         getPhotoExplain()
         
