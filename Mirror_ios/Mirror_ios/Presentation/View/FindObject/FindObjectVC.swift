@@ -57,6 +57,11 @@ class FindObjectVC: UIViewController, AVAudioRecorderDelegate, SFSpeechRecognize
     
     // MARK: - Lifecycle
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TTS.shared.stop()
+        TTS.shared.play("찾고싶은 물건을 영어로 말씀해주세요.")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +99,7 @@ class FindObjectVC: UIViewController, AVAudioRecorderDelegate, SFSpeechRecognize
             @unknown default: print("Unknown case")
             }
         }
+        
     }
     
     // MARK: - Actions
@@ -149,6 +155,7 @@ class FindObjectVC: UIViewController, AVAudioRecorderDelegate, SFSpeechRecognize
         }
         else {
             print("녹음 시작")
+            TTS.shared.stop()
             startRecording()
         }
     }
