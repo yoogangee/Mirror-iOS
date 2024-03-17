@@ -38,6 +38,7 @@
 		5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */; };
 		5A1F822A2B96FEA2005578A9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82292B96FEA2005578A9 /* VideoCapture.swift */; };
 		5A1F82312B9709DD005578A9 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */; };
+		5A4CAB842BA0D72000ECD1D6 /* beep1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CAB832BA0D72000ECD1D6 /* beep1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		5A1F82272B96EBB4005578A9 /* FindObjectCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindObjectCameraVC.swift; sourceTree = "<group>"; };
 		5A1F82292B96FEA2005578A9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		5A1F82302B9709DD005578A9 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
+		5A4CAB832BA0D72000ECD1D6 /* beep1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep1.mp3; path = ../../../../../../Downloads/beep1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		5A1F81F92B95BBAD005578A9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				5A4CAB832BA0D72000ECD1D6 /* beep1.mp3 */,
 				5A1F81CD2B95B6BC005578A9 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -423,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4CAB842BA0D72000ECD1D6 /* beep1.mp3 in Resources */,
 				5A1F81D12B95B6BC005578A9 /* LaunchScreen.storyboard in Resources */,
 				5A1F81CE2B95B6BC005578A9 /* Assets.xcassets in Resources */,
 			);
@@ -648,10 +652,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6GY9T72LC5;
+				DEVELOPMENT_TEAM = KBNZUY629B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mirror_ios/Global/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "미로: Mirror";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용을 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용을 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성 처리를 위해 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -677,10 +685,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6GY9T72LC5;
+				DEVELOPMENT_TEAM = KBNZUY629B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mirror_ios/Global/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "미로: Mirror";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용을 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용을 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성 처리를 위해 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
