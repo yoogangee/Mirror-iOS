@@ -61,6 +61,7 @@ class FindObjectCameraVC: UIViewController {
         setUpCamera()
         
         print("\(object!)을/를 찾습니다.")
+        
     }
     
     // MARK: - Setup UI
@@ -80,6 +81,15 @@ class FindObjectCameraVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if object != "테스트" {
+            TTS.shared.play("찾으시는 \(object!) 물건을 찾기 시작합니다. 있으신 공간에서 카메라를 천천히 이동해주세요.")
+        }
+        else {
+            TTS.shared.play("음성이 제대로 입력되지 않았습니다. 전 화면으로 돌아가주세요.")
+        }
+        while !TTS.shared.checkSpeechCompletion() {
+            continue
+        }
         self.videoCapture.start()
     }
     
@@ -113,7 +123,6 @@ class FindObjectCameraVC: UIViewController {
                     self.videoPreview.layer.addSublayer(previewLayer)
                     self.resizePreviewLayer()
                 }
-                
                 // start video preview when setup is done
                 self.videoCapture.start()
             }
@@ -138,6 +147,7 @@ extension FindObjectCameraVC: VideoCaptureDelegate {
             self.isInferencing = true
             
             // predict!
+            
             self.predictUsingVision(pixelBuffer: pixelBuffer)
         }
     }
@@ -178,7 +188,15 @@ extension FindObjectCameraVC {
         if objectDetected {
             // Play alert sound
             //print(desiredObject)
+            
             playAlertSound()
+//            if TTS.shared.checkSpeechCompletion() {
+//                playAlertSound()
+//            }
+//            else {
+//                print("안내음 재생중")
+//            }
+            
         }
         else {
             //print("not")
@@ -204,4 +222,5 @@ extension FindObjectCameraVC {
             print("Error playing sound: \(error.localizedDescription)")
         }
     }
+    
 }
