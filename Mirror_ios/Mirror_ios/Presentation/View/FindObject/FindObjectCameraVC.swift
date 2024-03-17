@@ -8,17 +8,15 @@
 import UIKit
 import Vision
 import CoreMedia
+import AVFoundation
 
 class FindObjectCameraVC: UIViewController {
 
     // MARK: - UI Properties
     var videoPreview: UIView!
     var boxesView: DrawingBoundingBoxView!
-    var labelsTableView: UITableView!
     
-    var inferenceLabel: UILabel!
-    var etimeLabel: UILabel!
-    var fpsLabel: UILabel!
+    var object: String!
     
     // MARK - Core ML model
     lazy var objectDectectionModel = { return try? yolov8s() }()
@@ -35,6 +33,9 @@ class FindObjectCameraVC: UIViewController {
     
     // MARK: - TableView Data
     var predictions: [VNRecognizedObjectObservation] = []
+    var previousPredictions: [VNRecognizedObjectObservation] = []
+    
+    var audioPlayer: AVAudioPlayer?
 
     
     lazy var navigationTitle: UILabel = {
@@ -58,6 +59,8 @@ class FindObjectCameraVC: UIViewController {
         
         // Setup camera
         setUpCamera()
+        
+        print("\(object!)을/를 찾습니다.")
     }
     
     // MARK: - Setup UI
@@ -155,7 +158,8 @@ extension FindObjectCameraVC {
             self.predictions = predictions
             DispatchQueue.main.async {
                 self.boxesView.predictedObjects = predictions
-                
+                self.playAlertSoundIfNeeded(objects: predictions)
+                self.previousPredictions = predictions
                 self.isInferencing = false
             }
         } else {
@@ -164,23 +168,40 @@ extension FindObjectCameraVC {
         }
         self.semaphore.signal()
     }
-}
-
-
-class MovingAverageFilter {
-    private var arr: [Int] = []
-    private let maxCount = 10
     
-    public func append(element: Int) {
-        arr.append(element)
-        if arr.count > maxCount {
-            arr.removeFirst()
+    func playAlertSoundIfNeeded(objects: [VNRecognizedObjectObservation]) {
+        let desiredObject = object // Change this to your desired object's label
+        
+        let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject } &&
+                                     !previousPredictions.contains { $0.labels.first?.identifier == desiredObject }
+
+        if objectDetected {
+            // Play alert sound
+            //print(desiredObject)
+            playAlertSound()
+        }
+        else {
+            //print("not")
         }
     }
     
-    public var averageValue: Int {
-        guard !arr.isEmpty else { return 0 }
-        let sum = arr.reduce(0) { $0 + $1 }
-        return Int(Double(sum) / Double(arr.count))
+    func playAlertSound() {
+        // Insert code to play your alert sound here
+        // For example, you can use AVFoundation to play an audio file
+        // Example:
+        
+        
+        let path = Bundle.main.path(forResource: "beep1", ofType: "mp3") // Change "alert_sound" to your audio file name
+        let url = URL(fileURLWithPath: path!)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.volume = 0.3
+            //audioPlayer?.numberOfLoops = 0
+            audioPlayer?.play()
+            print("playSound")
+        } catch {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
     }
 }
