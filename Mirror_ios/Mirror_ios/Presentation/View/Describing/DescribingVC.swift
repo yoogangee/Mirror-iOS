@@ -165,7 +165,7 @@ class DescribingVC: BaseController {
         
         explainTextLabel.snp.makeConstraints {
             $0.width.equalTo(explainView).offset(-36)
-            $0.height.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.5)
+            $0.height.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.2)
         }
         
         arrowView.snp.makeConstraints{
