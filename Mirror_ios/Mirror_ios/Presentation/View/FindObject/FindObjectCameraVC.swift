@@ -97,6 +97,7 @@ class FindObjectCameraVC: UIViewController {
         super.viewWillDisappear(animated)
         self.videoCapture.stop()
         audioPlayer?.stop()
+        dismissViewController()
     }
     
     // MARK: - Setup Core ML
@@ -219,4 +220,11 @@ extension FindObjectCameraVC {
         }
     }
     
+    func dismissViewController() {
+        if presentingViewController != nil {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }
