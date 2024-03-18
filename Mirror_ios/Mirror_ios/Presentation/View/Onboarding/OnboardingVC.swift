@@ -34,19 +34,19 @@ class OnboardingVC: UIPageViewController {
     private func setPages() {
         let page1 = OnboardingContentsVC(imageName: "subLogo",
                                          title: "\"미로:Mirror\"의 3가지 기능",
-                                         content: "이미지 묘사, 물건 찾기, 문서 읽기\n총 3가지의 기능을 제공합니다.\n각 기능은 어플 하단 네비게이션바를 통해\n홈 / 물건 찾기 / 이미지 설명 / 문서 읽기\n순으로 사용하실 수 있습니다.")
+                                         content: "이미지 묘사, 물건 찾기, 문서 읽기\n총 3가지의 기능을 제공합니다.\n각 기능은 어플 하단 네비게이션바를 통해\n홈 / 물건 찾기 / 이미지 설명 / 문서 읽기\n순으로 사용하실 수 있습니다.", readingText: "미로:Mirror에서는 이미지 묘사, 물건 찾기, 문서 읽기 총 세가지의 기능을 제공합니다.\n각 기능은 어플 하단 네비게이션바를 통해 홈 / 물건 찾기 / 이미지 설명 / 문서 읽기 순으로 사용하실 수 있습니다.")
         let page2 = OnboardingContentsVC(imageName: "filledhomeIcon",
                                          title: "홈 화면",
-                                         content: "앱 사용 가이드가 제공됩니다.")
+                                         content: "앱 사용 가이드가 제공됩니다.", readingText: "홈 화면에서는 앱 사용 가이드가 제공됩니다.")
         let page3 = OnboardingContentsVC(imageName: "filledeyeIcon",
                                          title: "물건 찾기 기능",
-                                         content: "앱 내에서 비디오가 실행되며,\n찾고자하는 물건을 말하고 해당 공간을 촬영하면\n물건을 감지했을 때 소리로 알림을 보냅니다.")
+                                         content: "앱 내에서 비디오가 실행되며,\n찾고자하는 물건을 말하고 해당 공간을 촬영하면\n물건을 감지했을 때 소리로 알림을 보냅니다.", readingText: "물건 찾기 기능에서는 앱 내에서 비디오가 실행되며, 찾고자하는 물건을 말하고 해당 공간을 촬영하면 물건을 감지했을 때 소리로 알림을 보냅니다.")
         let page4 = OnboardingContentsVC(imageName: "filledimageIcon",
                                          title: "이미지 설명 기능",
-                                         content: "앱 내에서 카메라가 실행되며,\n카메라로 앞의 상황을 촬영하면\n해당 이미지를 분석하여 설명을 생성하고 읽어줍니다.")
+                                         content: "앱 내에서 카메라가 실행되며,\n카메라로 앞의 상황을 촬영하면\n해당 이미지를 분석하여 설명을 생성하고 읽어줍니다.", readingText: "이미지 설명 기능에서는 앱 내에서 카메라가 실행되며, 카메라로 앞의 상황을 촬영하면 해당 이미지를 분석하여 설명을 생성하고 읽어줍니다.")
         let page5 = OnboardingContentsVC(imageName: "filleddocumentIcon",
                                          title: "문서 읽기 기능",
-                                         content: "앱 내에서 카메라가 실행되며,\n읽고자 하는 문서를 앞에 두고 촬영하면\n해당 이미지에서 텍스트를 추출하여 읽어줍니다.")
+                                         content: "앱 내에서 카메라가 실행되며,\n읽고자 하는 문서를 앞에 두고 촬영하면\n해당 이미지에서 텍스트를 추출하여 읽어줍니다.", readingText: "문서 읽기 기능에서는 앱 내에서 카메라가 실행되며, 읽고자 하는 문서를 앞에 두고 촬영하면 해당 이미지에서 텍스트를 추출하여 읽어줍니다.")
 
         pages.append(page1)
         pages.append(page2)

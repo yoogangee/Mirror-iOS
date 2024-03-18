@@ -175,7 +175,13 @@ class TextReadingVC: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        TTS.shared.stop()
+        TTS.shared.play("문서 읽기 기능")
+        
+        DispatchQueue.global(qos: .background).async {
+            // 백그라운드 스레드에서 호출
+            self.captureSession.startRunning()
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -183,6 +189,12 @@ class TextReadingVC: BaseController {
         
         let slideUpGesture = UIPanGestureRecognizer(target: self, action: #selector(slideHandle(_:)))
         summaryView.addGestureRecognizer(slideUpGesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.captureSession.stopRunning()
     }
     
     override func viewDidLayoutSubviews() {
