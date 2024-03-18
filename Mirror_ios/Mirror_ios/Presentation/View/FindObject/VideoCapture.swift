@@ -82,7 +82,10 @@ public class VideoCapture: NSObject {
     
     public func start() {
         if !captureSession.isRunning {
-            captureSession.startRunning()
+            DispatchQueue.global(qos: .background).async { [self] in
+                // 백그라운드 스레드에서 호출
+                captureSession.startRunning()
+            }
         }
     }
     
