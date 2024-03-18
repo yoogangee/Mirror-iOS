@@ -96,6 +96,7 @@ class FindObjectCameraVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.videoCapture.stop()
+        audioPlayer?.stop()
     }
     
     // MARK: - Setup Core ML
