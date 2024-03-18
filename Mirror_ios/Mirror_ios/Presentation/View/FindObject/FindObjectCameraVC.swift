@@ -183,24 +183,23 @@ extension FindObjectCameraVC {
         let desiredObject = object // Change this to your desired object's label
         
         let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject } &&
-                                     !previousPredictions.contains { $0.labels.first?.identifier == desiredObject }
+                                                !previousPredictions.contains { $0.labels.first?.identifier == desiredObject }
 
         if objectDetected {
             // Play alert sound
-            //print(desiredObject)
-            
             playAlertSound()
-//            if TTS.shared.checkSpeechCompletion() {
+        }
+//        let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject }
+//                
+//        if objectDetected {
+//            // Play alert sound if it's not already playing
+//            if audioPlayer?.isPlaying == false {
 //                playAlertSound()
 //            }
-//            else {
-//                print("안내음 재생중")
-//            }
-            
-        }
-        else {
-            //print("not")
-        }
+//        } else {
+//            // Stop playing sound if desired object is not detected
+//            audioPlayer?.stop()
+//        }
     }
     
     func playAlertSound() {
@@ -214,8 +213,8 @@ extension FindObjectCameraVC {
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.volume = 0.3
-            //audioPlayer?.numberOfLoops = 0
+            audioPlayer?.volume = 0.5
+            //audioPlayer?.numberOfLoops = 2
             audioPlayer?.play()
             print("playSound")
         } catch {
