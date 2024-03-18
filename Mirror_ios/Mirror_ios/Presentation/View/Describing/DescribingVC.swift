@@ -227,10 +227,10 @@ class DescribingVC: BaseController {
         
     }
     
-    func getPhotoExplain() {
+    func getPhotoExplain(image: UIImage) {
         // 서버에 사진 보내고 설명 받기
         
-        connectingServer {
+        connectingServer(image: image) {
             DispatchQueue.main.async { [self] in
                 explainTextLabel.setText(SharedData.shared.explainText)
                 isExistSummary = true
@@ -241,9 +241,9 @@ class DescribingVC: BaseController {
         
     }
     
-    func connectingServer(completion: @escaping () -> Void) {
+    func connectingServer(image: UIImage, completion: @escaping () -> Void) {
         
-        NetworkManager.shared.getImageCaption(image: UIImage(named: "testImage")!) { result in
+        NetworkManager.shared.getImageCaption(image: image) { result in
             switch result {
             case .success(let data):
                 print("\n\n\n만들어진 캡션 문장: \(data)\n\n\n")
@@ -356,11 +356,14 @@ extension DescribingVC: AVCapturePhotoCaptureDelegate {
             return
         }
 
-        let capturedImage = UIImage(data: imageData)
+        guard let capturedImage = UIImage(data: imageData) else {
+            print(CustomError.noImageData)
+            return
+        }
         // Captured image is available here, you can use it as needed
         // TODO: - 이미지에서 텍스트 추출
         
-        getPhotoExplain()
+        getPhotoExplain(image: capturedImage)
         
     }
 }

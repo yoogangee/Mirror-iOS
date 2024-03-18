@@ -14,7 +14,7 @@ enum Endpoint {
 
 struct NetworkAPI {
     static let schema = "http"
-    static let host = "127.0.0.1:8000"
+    static let host = "125.128.27.228:319"
     static let path = "captioning"
 
 //    func getImageCaptionAPI() -> URLComponents {
@@ -28,7 +28,6 @@ struct NetworkAPI {
 //    }
     
     func getImageCaptionAPI() -> URL? {
-//        return URL(string: "\(NetworkAPI.schema)://\(NetworkAPI.host)/\(NetworkAPI.path)")
-        return URL(string: "http://localhost:8000/captioning")
+        return URL(string: "\(NetworkAPI.schema)://\(NetworkAPI.host)/\(NetworkAPI.path)")
     }
 }

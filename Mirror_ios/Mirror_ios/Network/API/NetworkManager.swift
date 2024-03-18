@@ -39,7 +39,7 @@ class NetworkManager {
         let uniqString = UUID().uuidString
         let contentType = "multipart/form-data; boundary=\(uniqString)"
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         
         // form data setting
         
