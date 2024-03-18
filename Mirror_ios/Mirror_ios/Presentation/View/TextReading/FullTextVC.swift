@@ -62,6 +62,12 @@ class FullTextVC: BaseController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        clickedbackBtn()
+    }
+    
     // MARK: - Actions
     // IBAction 및 사용자 인터랙션과 관련된 메서드 정의
     override func configureUI() {
