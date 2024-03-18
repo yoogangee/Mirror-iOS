@@ -368,17 +368,13 @@ class TextReadingVC: BaseController {
     }
     
     // MARK: - GPT
-    func runGPT(query: CompletionsQuery) {
-        let openAI = OpenAI(apiToken: "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")
-        let query = query
-        openAI.completions(query: query) { result in
-            //Handle result here
-            print(result)
+    func runGPT() {
+        
+        GPTManager.shared.getAIResponse(SharedData.shared.recognizedFullText) { result in
             switch result {
             case .success(let result):
                 // 성공한 경우
-                let stringValue = "\(result)"
-                SharedData.shared.summaryText = stringValue
+                print(result)
                 
                 DispatchQueue.main.async { [self] in
                     setSummaryView(text: SharedData.shared.summaryText)
@@ -386,8 +382,7 @@ class TextReadingVC: BaseController {
             case .failure(let error):
                 // 실패한 경우
                 print("Error: \(error.localizedDescription)")
-                SharedData.shared.summaryText = "\(error.localizedDescription)\n위의 이유로 GPT를 이용한 요약을 수행할 수 없습니다."
-                
+
                 DispatchQueue.main.async { [self] in
                     setSummaryView(text: SharedData.shared.summaryText)
                 }
@@ -420,7 +415,7 @@ class TextReadingVC: BaseController {
             SharedData.shared.recognizedFullText = text
             print("OCR 결과: \(text)")
             
-            self?.runGPT(query: CompletionsQuery(model: .gpt3_5Turbo, prompt: "\(SharedData.shared.recognizedFullText)\n위의 글을 요약해줘.", temperature: 0, maxTokens: 5000, topP: 1, frequencyPenalty: 0, presencePenalty: 0, stop: ["\\n"]))
+            self?.runGPT()
             
         }
         

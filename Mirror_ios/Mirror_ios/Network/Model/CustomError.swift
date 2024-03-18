@@ -15,6 +15,7 @@ enum CustomError: Error {
     case responseCodeError(code: Int)
     case noResultError
     case decodingError(error: NSError)
+    case badGPTRunError(error: NSError)
     
     var description: String {
         switch self {
@@ -32,6 +33,8 @@ enum CustomError: Error {
             return "noResultError: result가 없습니다."
         case .decodingError(error: let error):
             return "decodingError: 다음과 같은 이유로 디코딩에 실패했습니다.\n\(error)"
+        case .badGPTRunError(error: let error):
+            return "badGPTRunError: \(error)"
         }
     }
 }
