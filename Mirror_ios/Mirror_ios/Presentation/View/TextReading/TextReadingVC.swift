@@ -175,7 +175,7 @@ class TextReadingVC: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        TTS.shared.stop()
+        TTS.shared.play("문서 읽기 기능")
     }
     
     override func viewDidLoad() {

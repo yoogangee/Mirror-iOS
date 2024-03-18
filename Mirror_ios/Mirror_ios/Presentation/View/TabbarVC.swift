@@ -36,29 +36,29 @@ class TabBarVC: UITabBarController {
         tabBar.backgroundColor = UIColor.mainYellow
         tabBar.itemPositioning = .centered
         tabBar.isTranslucent = false
-        tabBar.unselectedItemTintColor = .black
-        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = UIColor.customBlack
+        tabBar.tintColor = UIColor.mainBlue
         
         
         let homeVC = HomeVC()
-        let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "homeIcon"), tag: 0)
+        let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "homeIcon"), selectedImage: UIImage.filledhomeIcon)
         homeVC.tabBarItem = homeTabBarItem
         homeVC.tabBarItem.badgeColor = UIColor.mainBlue
         
         let findObjectVC = UINavigationController(rootViewController: FindObjectVC())
-        let findObjectTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "eyeIcon"), tag: 1)
+        let findObjectTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "eyeIcon"), selectedImage: UIImage.filledeyeIcon)
         findObjectVC.tabBarItem = findObjectTabBarItem
         
         let describingVC = UINavigationController(rootViewController: DescribingVC())
-        let describingTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "imageIcon"), tag: 2)
+        let describingTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "imageIcon"), selectedImage: .filledimageIcon)
         describingVC.tabBarItem = describingTabBarItem
         
         let textReadingVC = UINavigationController(rootViewController: TextReadingVC())
-        let textReadingTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "documentIcon"), tag: 3)
+        let textReadingTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "documentIcon"), selectedImage: UIImage.filleddocumentIcon)
         textReadingVC.tabBarItem = textReadingTabBarItem
         
         self.viewControllers = [homeVC, findObjectVC, describingVC, textReadingVC]
-        self.selectedIndex = 3
+        self.selectedIndex = 0
     
     }
     

@@ -96,7 +96,7 @@ class DescribingVC: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        TTS.shared.stop()
+        TTS.shared.play("이미지 설명 기능")
     }
     
     override func viewDidLoad() {
@@ -219,11 +219,11 @@ class DescribingVC: BaseController {
             }
         }
         
-//        if explainTextLabel.getText() == "" || explainTextLabel.getText() == nil {
-//            TTS.shared.play("촬영하신 사진상에 설명드릴 상황이 없습니다.")
-//        } else {
-//            TTS.shared.play("촬영하신 사진상의 상황은 다음과 같습니다.\n\n" + explainTextLabel.getText()!)
-//        }
+        if explainTextLabel.getText() == "" || explainTextLabel.getText() == nil {
+            TTS.shared.play("촬영하신 사진상에 설명드릴 상황이 없습니다.")
+        } else {
+            TTS.shared.play("촬영하신 사진상의 상황은 다음과 같습니다.\n\n" + explainTextLabel.getText()!)
+        }
         
     }
     
