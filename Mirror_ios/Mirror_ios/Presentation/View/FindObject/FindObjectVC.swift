@@ -50,7 +50,7 @@ class FindObjectVC: UIViewController, AVAudioRecorderDelegate, SFSpeechRecognize
     
     lazy var speechLabel: UILabel = {
         let speechLabel = UILabel()
-        speechLabel.text = "테스트"
+        speechLabel.text = ""
         speechLabel.textColor = .black
         return speechLabel
     }()

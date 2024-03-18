@@ -26,8 +26,6 @@
 		5A1F81F62B95B6E2005578A9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A1F81F52B95B6E2005578A9 /* SnapKit */; };
 		5A1F81FE2B95BC23005578A9 /* DefaultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F81FD2B95BC23005578A9 /* DefaultVC.swift */; };
 		5A1F82002B95BC42005578A9 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F81FF2B95BC42005578A9 /* BaseController.swift */; };
-		5A1F82062B95BD53005578A9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82052B95BD53005578A9 /* APIManager.swift */; };
-		5A1F82082B95BD5D005578A9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82072B95BD5D005578A9 /* Model.swift */; };
 		5A1F82102B95BDF2005578A9 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F820F2B95BDF2005578A9 /* TabbarVC.swift */; };
 		5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82112B95BDFE005578A9 /* OnboardingVC.swift */; };
 		5A1F82142B95BE0D005578A9 /* OnboardingContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F82132B95BE0D005578A9 /* OnboardingContentsVC.swift */; };
@@ -81,8 +79,6 @@
 		5A1F81E12B95B6BD005578A9 /* Mirror_iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mirror_iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1F81FD2B95BC23005578A9 /* DefaultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVC.swift; sourceTree = "<group>"; };
 		5A1F81FF2B95BC42005578A9 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		5A1F82052B95BD53005578A9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		5A1F82072B95BD5D005578A9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5A1F820F2B95BDF2005578A9 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		5A1F82112B95BDFE005578A9 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		5A1F82132B95BE0D005578A9 /* OnboardingContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentsVC.swift; sourceTree = "<group>"; };
@@ -225,7 +221,6 @@
 		5A1F82032B95BD3E005578A9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				5A1F82052B95BD53005578A9 /* APIManager.swift */,
 				093D7AFA2BA188030015EB6D /* NetworkManager.swift */,
 				09DB53552BA2F89B00E2E695 /* GPTManager.swift */,
 			);
@@ -235,7 +230,6 @@
 		5A1F82042B95BD43005578A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5A1F82072B95BD5D005578A9 /* Model.swift */,
 				093D7AFC2BA18A590015EB6D /* CustomError.swift */,
 			);
 			path = Model;
@@ -457,13 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1F821C2B95BE40005578A9 /* TextReadingVC.swift in Sources */,
-				5A1F82082B95BD5D005578A9 /* Model.swift in Sources */,
 				5A1F82282B96EBB4005578A9 /* FindObjectCameraVC.swift in Sources */,
 				09ACB6892BA1F0F60079179D /* yolov8s.mlpackage in Sources */,
 				5A1F82242B95C22F005578A9 /* UILabel+.swift in Sources */,
 				5A1F82122B95BDFE005578A9 /* OnboardingVC.swift in Sources */,
 				09AFD7562B98583200816BE6 /* PaddingLabel.swift in Sources */,
-				5A1F82062B95BD53005578A9 /* APIManager.swift in Sources */,
 				093D7AF52BA157D40015EB6D /* TTS.swift in Sources */,
 				5A1F82142B95BE0D005578A9 /* OnboardingContentsVC.swift in Sources */,
 				09D61A362B9B0354006DCE6C /* FullTextVC.swift in Sources */,
@@ -656,7 +648,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KBNZUY629B;
+				DEVELOPMENT_TEAM = 6GY9T72LC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mirror_ios/Global/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "미로: Mirror";
@@ -689,7 +681,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KBNZUY629B;
+				DEVELOPMENT_TEAM = 6GY9T72LC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mirror_ios/Global/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "미로: Mirror";
