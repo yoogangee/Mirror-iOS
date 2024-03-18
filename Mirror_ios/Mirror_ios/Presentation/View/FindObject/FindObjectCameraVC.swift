@@ -96,6 +96,7 @@ class FindObjectCameraVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.videoCapture.stop()
+        dismissViewController()
     }
     
     // MARK: - Setup Core ML
@@ -218,4 +219,11 @@ extension FindObjectCameraVC {
         }
     }
     
+    func dismissViewController() {
+        if presentingViewController != nil {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }
