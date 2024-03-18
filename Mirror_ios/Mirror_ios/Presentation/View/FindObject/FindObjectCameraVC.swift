@@ -167,8 +167,9 @@ extension FindObjectCameraVC {
         if let predictions = request.results as? [VNRecognizedObjectObservation] {
             self.predictions = predictions
             DispatchQueue.main.async {
-                self.boxesView.predictedObjects = predictions
                 self.playAlertSoundIfNeeded(objects: predictions)
+                self.boxesView.predictedObjects = predictions
+                //self.playAlertSoundIfNeeded(objects: predictions)
                 self.previousPredictions = predictions
                 self.isInferencing = false
             }
@@ -184,37 +185,32 @@ extension FindObjectCameraVC {
         
         let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject } &&
                                                 !previousPredictions.contains { $0.labels.first?.identifier == desiredObject }
-
+        
         if objectDetected {
             // Play alert sound
             playAlertSound()
         }
-//        let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject }
-//                
+        else if !(objects.contains { $0.labels.first?.identifier == desiredObject }) {
+            audioPlayer?.stop()
+            print("stop")
+        }
+//        let objectDetected = objects.contains { $0.labels.first?.identifier == desiredObject } &&
+//        !previousPredictions.contains { $0.labels.first?.identifier == desiredObject }
+//
 //        if objectDetected {
-//            // Play alert sound if it's not already playing
-//            if audioPlayer?.isPlaying == false {
-//                playAlertSound()
-//            }
-//        } else {
-//            // Stop playing sound if desired object is not detected
-//            audioPlayer?.stop()
+//            // Play alert sound
+//            playAlertSound()
 //        }
     }
     
     func playAlertSound() {
-        // Insert code to play your alert sound here
-        // For example, you can use AVFoundation to play an audio file
-        // Example:
-        
-        
         let path = Bundle.main.path(forResource: "beep1", ofType: "mp3") // Change "alert_sound" to your audio file name
         let url = URL(fileURLWithPath: path!)
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.volume = 0.5
-            //audioPlayer?.numberOfLoops = 2
+            audioPlayer?.volume = 1
+            audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
             print("playSound")
         } catch {
