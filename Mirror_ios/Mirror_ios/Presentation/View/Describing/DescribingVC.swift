@@ -97,6 +97,11 @@ class DescribingVC: BaseController {
         super.viewWillAppear(animated)
         
         TTS.shared.play("이미지 설명 기능")
+        
+        DispatchQueue.global(qos: .background).async {
+            // 백그라운드 스레드에서 호출
+            self.captureSession.startRunning()
+        }
     }
     
     override func viewDidLoad() {
@@ -104,6 +109,12 @@ class DescribingVC: BaseController {
         
         let slideUpGesture = UIPanGestureRecognizer(target: self, action: #selector(slideHandle(_:)))
         explainView.addGestureRecognizer(slideUpGesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.captureSession.stopRunning()
     }
     
     // MARK: - Actions

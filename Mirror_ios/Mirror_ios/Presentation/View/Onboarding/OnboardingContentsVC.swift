@@ -16,12 +16,14 @@ class OnboardingContentsVC: BaseController {
     private var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var contentLabel = UILabel()
+    private var readingText = ""
     
-    init(imageName: String, title: String, content: String) {
+    init(imageName: String, title: String, content: String, readingText: String) {
         super.init(nibName: nil, bundle: nil)
         imageView.image = UIImage(named: imageName)
         titleLabel.text = title
         contentLabel.text = content
+        self.readingText = readingText
     }
     
     required init(coder: NSCoder) {
@@ -32,6 +34,8 @@ class OnboardingContentsVC: BaseController {
     // 생명주기와 관련된 메서드 (viewDidLoad, viewDidDisappear...)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TTS.shared.play(readingText)
     }
     
     // MARK: - Actions
