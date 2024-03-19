@@ -278,29 +278,36 @@ class TextReadingVC: BaseController {
     
     func setSummaryView(text: String) {
         // 내용 삽입
-        summaryLabel.text = text
+        setLabelText(label: summaryLabel, text: text) { [self] result in
+            print(result)
+            
+            if isExistSummary {
         
-        if isExistSummary {
+                DispatchQueue.main.async { [self] in
+                    slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
+                }
+                
+            } else {
+                
+                print("summaryView 내리기")
+                DispatchQueue.main.async { [self] in
+                    slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
+                    isExistSummary = true
+                }
+            }
+            
+            if summaryLabel.text == "" {
+                TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + "읽어드릴 문장이 없습니다.")
+            } else {
+                TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + (summaryLabel.text ?? "읽어드릴 문장이 없습니다."))
+            }
+            
+        }
+    }
     
-            DispatchQueue.main.async { [self] in
-                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
-            }
-            
-        } else {
-            
-            print("summaryView 내리기")
-            DispatchQueue.main.async { [self] in
-                slideAnimation(summaryView, slideDistance: summaryView.frame.height, duration: 0.3)
-                isExistSummary = true
-            }
-        }
-        
-        if summaryLabel.text == "" {
-            TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + "읽어드릴 문장이 없습니다.")
-        } else {
-            TTS.shared.play("chatGPT로 해당 문서 내용을 요약했어요.\n\n" + (summaryLabel.text ?? "읽어드릴 문장이 없습니다."))
-        }
-        
+    func setLabelText(label: UILabel, text: String, completion: @escaping (String) -> (Void)) {
+        label.text = text
+        completion("\(label)에 텍스트 배치")
     }
     
     // MARK: - Helpers
